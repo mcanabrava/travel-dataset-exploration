@@ -1,0 +1,16 @@
+version: '3.8'
+
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+  db:
+    image: 'postgres:latest'
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    expose:
+      - '7000'
+    ports:
+      - '7000:5432'
