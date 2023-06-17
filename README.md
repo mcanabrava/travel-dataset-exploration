@@ -88,28 +88,28 @@ Please check the notebook for 5 additional charts and insights.
 As the goal of this exercise is to finish the data exploration under a limited ammount of time, I have restricted myself to developing basic analytics functionalities, but I would like to highlight improvement opportunities in case more time and resources were available:
 
 **1. Code Quality**  
-  - Simplify raw tables ingestion in the raw zone using the copy command inside the load_raw_tables.sql instead of SQL Alchemy and reduce code lines using the DRY principle to avoid repeating code in multiple cells  
-  - Simplify refined tables ingestion using the same strategy  
-  - Export custom functions to a separate python file  
-  - Export SQL queries to a separate file  
+  - Simplify raw tables ingestion in the raw zone using the copy command inside the load_raw_tables.sql instead of SQL Alchemy and reduce code lines using the DRY principle to avoid repeating code in multiple cells.  
+  - Simplify refined tables ingestion using the same strategy.  
+  - Export custom functions to a separate python file.  
+  - Export SQL queries to a separate file.  
 
 **2. Pipeline Orchestration**  
-  - Not useful considering the context of yearly data, but in case we were dealing with monthly or daily ingestion we could break jupyter notebook code down into different python files and schedule daily jobs for each step inside the notebook file, or use an orchestrator such as Airflow as demonstrated in one of my previous [github projects](https://github.com/mcanabrava/udacity-aws-data-engineering/tree/main/4.%20Data%20Pipelines%20with%20Airflow)  
+  - Not useful considering the context of yearly data, but in case we were dealing with monthly or daily ingestion we could break jupyter notebook code down into different python files and schedule daily jobs for each step inside the notebook file, or use an orchestrator such as Airflow as demonstrated in one of my previous [github projects](https://github.com/mcanabrava/udacity-aws-data-engineering/tree/main/4.%20Data%20Pipelines%20with%20Airflow).  
 
 **3. Data Quality**  
   - Data Quality operators could be implemented directly in the orchestrator, such as inside an Airflow DAG  
-  - Alternatively, simple python scripts with the solo purpose of printing logs could be used to check for completeness, accuracy, consistency, integrity, and other dimensions. Examples include logs for counting the number of null values, duplicated rows, checks between the number of arrivals and departures, and value checks between the raw and refined layers  
+  - Alternatively, simple python scripts with the solo purpose of printing logs could be used to check for completeness, accuracy, consistency, integrity, and other dimensions. Examples include logs for counting the number of null values, duplicated rows, checks between the number of arrivals and departures, and value checks between the raw and refined layers.  
 
 **4. Query Performance and Cost Saving**  
-  - An additional "metrics layer" with aggregated information could be built upon the refined layer to consolidate aggregated business information so end users could simply read from the table in their BI system of choice instead of making the BI run the calculations by itself, which is both more expensive and less performatic. However, due to the small volume of the dataset, this was not executed  
+  - An additional "metrics layer" with aggregated information could be built upon the refined layer to consolidate aggregated business information so end users could simply read from the table in their BI system of choice instead of making the BI run the calculations by itself, which is both more expensive and less performatic. However, due to the small volume of the dataset, this was not executed.  
 
 **5. Data Visualization**  
   - Additional analysis such as:  
-    - ingest the total number of inhabitants of each country to determine the countries with the highest and lower percentual rates of inbound and outbound travelers, assuming departures and arrivals are a good proxy for travelers  
-    - find out the average yearly spent per inhabitant in foreign countries, considering the full population data  
-    - on the other hand, understand the average collection per inhabitant given total foreigners expenditure in each country  
+    - ingest the total number of inhabitants of each country to determine the countries with the highest and lower percentual rates of inbound and outbound travelers, assuming departures and arrivals are a good proxy for travelers.  
+    - find out the average yearly spent per inhabitant in foreign countries, considering the full population data.  
+    - on the other hand, understand the average collection per inhabitant given total foreigners expenditure in each country.  
     - what were the years with a record high or low on arrival/departures? how far are these records from the average numbers?  
-  - Connect Postgres to a professional BI tool such as Metabase to allow non-technical users to run their own analysis and have a better-looking dashboard with additional functionalities  
+  - Connect Postgres to a professional BI tool such as Metabase to allow non-technical users to run their own analysis and have a better-looking dashboard with additional functionalities.  
 
 **6. Business Alerts**  
-  - In case business monitoring was useful, alarms could be added directly into the BI tool, to send a slack message or email to the relevant group of people when the number yearly, monthly, or weekly visitors in a certain country or any of the previous mentioned metrics goes above or beyond a certain threshold, for example
+  - In case business monitoring was useful, alarms could be added directly into the BI tool, to send a slack message or email to the relevant group of people when the number yearly, monthly, or weekly visitors in a certain country or any of the previous mentioned metrics goes above or beyond a certain threshold, for example.
