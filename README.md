@@ -26,28 +26,29 @@ I have decided to use the [International Tourism Demographics Kaggle dataset](ht
 
 More complex projects that deal with heavier datasets or joins between tables can be found in my github:
 
-1 - [11 GB dataset ingestion in AWS](https://github.com/mcanabrava/data-engineering-aws-mba-fiap)
+1 - [11 GB dataset ingestion in AWS](https://github.com/mcanabrava/data-engineering-aws-mba-fiap) <br></br>
 2 - [Staging and Loading multiple tables in Redshift](https://github.com/mcanabrava/udacity-aws-data-engineering/tree/main/2.%20Cloud%20Data%20Warehouses)
 
 ### 2. Jupyter notebook
 
-The code for this project is all inside the notebook folder inside a Jupyter Notebook file. However, it is first necessary to set up a postgres container using docker to better replicate a production work environment. To try the project, please follow the steps below:
+The code for this project is inside the notebook folder. However, it is first necessary to set up a postgres container using docker to better replicate a production work environment. To try the project, please follow the steps below:
 
 1. Start docker compose in the current directory by running docker-compose up
 2. Create a new virtual env by using your way of choice
 
 For example, I'm currently running virtualenv on Windows with:
 
-´´´´
+```
 virtualenv travelenv
 travelenv\Scripts\activate
-´´´´
-3. Install the required packages by running pip install -r requirements.txt
+```
+
+3. Install the required packages by running pip install -r requirements.txt <br></br>
 4. Open the notebook and run the cells to create and load the raw postgres tables, load cleaned data into the refined tables, and finally load data into the aggregated tables that are used for the data visualizations.
 
 #### Architecture Design
 
-![alt_text](../images/architecture.png "Architecture")
+![alt_text](./images/architecture.png "Architecture")
 
 Postgres database usage is not a requirement or an advantage in the context of the current dataset, as we could run the same data explorations and visualizations directly in the Jupyter Notebook. However, Postgres is being used solely for demonstration purposes in case there was the actual need to store the CSVs information for later user consumption. 
 
@@ -62,23 +63,23 @@ Key Insights:
 
 1. France, Spain and the U.S led 2018 arrivals with around 90 million arrivals each, a figure almost 3x higher than the U.K (ranking #10), and 45x higher than the dataset median, pointing to a very concentrated global tourism market.
 
-![alt_text](../images/top10arrivals.png "Top 10 Arrivals")
+![alt_text](./images/top10arrivals.png "Top 10 Arrivals")
 
 2. Although China and Germany are both in the top 10 countries in number of arrivals, they also have a significant number of departures, being under the top 5 outbound/inbound ratio countries with 2x and 3x more departures than arrivals, respectively. Kyrgyzstan deserves special attention and a follow-up investigation as it has the highest O/I ratio with a 5x difference from the Finland, in the second place. What is going on with Kyrgyzstan?
 
-![alt_text](../images/OIRatio.png "Top 5 Highest O/I")
+![alt_text](./images/OIRatio.png "Top 5 Highest O/I")
 
 3. On the other hand, Taijikistan leads the Top 5 of Highest Arrivals/Departure ratios. Why are so few people departuring from the country? Would it be because of missing data, limited infrastructured, or political conditions? Dominican Republic, Croatia, and Portugal are not a surprise in this chart given the small size of these countries compared to their touristic popularity.
 
-![alt_text](../images/IORatio.png "Top 5 Highest I/O")
+![alt_text](./images/IORatio.png "Top 5 Highest I/O")
 
 4. Continuing the investigation about Taijikistan, we can see that despite the low absolute number of arrivals, they have been growing at a fast rate, positioning the country on the top #1 in terms of arrival growth rate during 2014-2018 with an increase of almost 400%. 
 
-![alt_text](../images/highest_increase_in_arrivals.png "Fastest growing countries in arrivals")
+![alt_text](./images/highest_increase_in_arrivals.png "Fastest growing countries in arrivals")
 
 5. A key part of the tourism industry is the number of visitors in each country, but is equally or even more important than that how much each tourist is spending. Qatar leads the way with 6.461 USD spent/arrival, almost twice as much as the other top 9 countries. Australia and China are able to capture a lot of money from tourists, considering that they combine both spending and high number of tourists. Brazil and Angola are a surprise to me, given that they have weaker currencies and it might be harder to spend a high ammount of dollars.
 
-![alt_text](../images/arrivals_expenditure.png "Arrivals vs. Expenditure Rate")
+![alt_text](./images/arrivals_expenditure.png "Arrivals vs. Expenditure Rate")
 
 Please check the notebook for 5 additional charts and insights. 
 
