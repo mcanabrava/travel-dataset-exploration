@@ -26,8 +26,8 @@ I have decided to use the [International Tourism Demographics Kaggle dataset](ht
 
 More complex projects that deal with heavier datasets or joins between tables can be found in my github:
 
-1 - [11 GB dataset ingestion in AWS](https://github.com/mcanabrava/data-engineering-aws-mba-fiap) <br></br>
-2 - [Staging and Loading multiple tables in Redshift](https://github.com/mcanabrava/udacity-aws-data-engineering/tree/main/2.%20Cloud%20Data%20Warehouses)
+- [11 GB dataset ingestion in AWS](https://github.com/mcanabrava/data-engineering-aws-mba-fiap) <br></br>
+- [Staging and Loading multiple tables in Redshift](https://github.com/mcanabrava/udacity-aws-data-engineering/tree/main/2.%20Cloud%20Data%20Warehouses)
 
 ### 2. Jupyter notebook
 
@@ -43,7 +43,7 @@ virtualenv travelenv
 travelenv\Scripts\activate
 ```
 
-3. Install the required packages by running pip install -r requirements.txt <br></br>
+3. Install the required packages by running pip install -r requirements.txt
 4. Open the notebook and run the cells to create and load the raw postgres tables, load cleaned data into the refined tables, and finally load data into the aggregated tables that are used for the data visualizations.
 
 #### Architecture Design
@@ -52,9 +52,9 @@ travelenv\Scripts\activate
 
 Postgres database usage is not a requirement or an advantage in the context of the current dataset, as we could run the same data explorations and visualizations directly in the Jupyter Notebook. However, Postgres is being used solely for demonstration purposes in case there was the actual need to store the CSVs information for later user consumption. 
 
-The same applies for the tables we are using inside Postgres, as they could be contained inside dataframes with different names. The aim of creating a raw and a refined layer is to mantain a backup of the data in it's raw state after ingestion and after the necessary transformations. A trusted metrics layer could also be used to provide aggregated information from the individual tables or their combinations. 
+The same applies for the tables we are using inside Postgres, as they could be contained inside dataframes with different names. The aim of creating a raw and a refined layer is to mantain a backup of the data in it's raw state after ingestion and after the necessary transformations. In this case, data cleaning and transformations included dropping columns for years that were not the goal of the analysis (1960-2013), removing aggregated regions (Europe, World, Asia, etc) that do not represent countries, removing columns and rows that had null values and classification columns that were not useful.
 
-Seaborn and matplotlib were chosen to build the visual explorations for the dataset as I didn't have a lot of experience on them and decided this was a good opportunity to familiarize myself with these libraries. On the other hand, a clear improvement point here would be to add a professional BI tool to create the visualizations, such as a docker-compose version of metabase.
+A trusted metrics layer could also be used to provide aggregated information from the individual tables or their combinations. Nonetheless, given the light nature of the queries in the dataset, Seaborn and Matplotlib were chosen to build the visual explorations directly from the refined layer. As I didn't have a lot of experience with them I also decided this could be a good opportunity to familiarize myself with the libraries. On the other hand, a clear improvement point here would be to add a professional BI tool to create the visualizations, such as a docker-compose version of metabase.
 
 
 ### 3. Final report
