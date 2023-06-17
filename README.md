@@ -71,7 +71,7 @@ Key Insights:
 
 3. On the other hand, Taijikistan leads the Top 5 of Highest Arrivals/Departure ratios. Why are so few people departuring from the country? Would it be because of missing data, limited infrastructured, or political conditions? Dominican Republic, Croatia, and Portugal are not a surprise in this chart given the small size of these countries compared to their touristic popularity.
 
-![alt_text](./images/IORatio.png "Top 5 Highest I/O")
+![alt_text](./images/IOratio.png "Top 5 Highest I/O")
 
 4. Continuing the investigation about Taijikistan, we can see that despite the low absolute number of arrivals, they have been growing at a fast rate, positioning the country on the top #1 in terms of arrival growth rate during 2014-2018 with an increase of almost 400%. 
 
